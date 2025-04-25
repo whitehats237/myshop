@@ -41,6 +41,47 @@
             </div>
         </section>
     
+    // <?php
+    // Check if the form is submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
+        // Sanitize inputs
+        $name = htmlspecialchars(trim($_POST["name"]));
+        $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
+        $subject = htmlspecialchars(trim($_POST["subject"]));
+        $message = htmlspecialchars(trim($_POST["message"]));
     
+        // Validate inputs
+        if (empty($name) || empty($email) || empty($subject) || empty($message)) {
+            echo "Please fill in all required fields.";
+            exit;
+        }
+    
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo "Invalid email address.";
+            exit;
+        }
+    
+        // Compose email
+        $to = "youremail@example.com"; // Replace with your email address
+        $email_subject = "New Contact Message: $subject";
+        $email_body = "You have received a new message from $name.\n\n".
+                      "Email: $email\n\n".
+                      "Message:\n$message";
+    
+        $headers = "From: $email\r\n";
+        $headers .= "Reply-To: $email\r\n";
+    
+        // Send the email
+        if (mail($to, $email_subject, $email_body, $headers)) {
+            echo "Thank you! Your message has been sent.";
+        } else {
+            echo "Oops! Something went wrong and we couldn't send your message.";
+        }
+    
+    } else {
+        echo "Invalid request.";
+    }
+    ?>
     </body>
     </html>
