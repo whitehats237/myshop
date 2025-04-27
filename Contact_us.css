@@ -107,5 +107,38 @@ button {
     cursor: pointer;
     font-size: 1.1em;
 }
+.find-us-section {
+    padding: 50px 20px;
+    background-color: #f8f8f8;
+}
+
+.find-us-section h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.find-us-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.find-us-text {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.find-us-text p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.find-us-map iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+}
 
 

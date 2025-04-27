@@ -1,55 +1,98 @@
-*{
-    margin: 0px;
-    padding: 0px;
+
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #a39f9f;
+    color: #333;
+}
+
+
 .header {
     background-color: #333;
-    padding: 10px 0;
-    text-align: center;
+    padding: 15px 0;
 }
 
-.header nav ul {
+nav ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.header nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-.header nav ul li a {
-    color: rgb(185, 181, 181);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-h1 {
     text-align: center;
-    color: #333;
-    margin-bottom: 30px;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff9900;
+}
+
+.body {
+    max-width: 1000px;
+    margin: 50px auto;
     padding: 40px;
     background-color: #fff;
-    max-width: 1000px;
-    margin-bottom: 10px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.content p,
-.content ul {
-    font-size: 1.1em;
-    line-height: 1.6;
+.body h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #444;
+    font-size: 36px;
+}
+
+.content p {
+    margin-bottom: 20px;
+    font-size: 18px;
     color: #555;
+}
+
+
+.footer {
+    margin-top: 40px;
+    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.footer span {
+    display: block;
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #333;
+}
+
+.footer ul {
+    list-style-type: disc;
+    padding-left: 40px;
     margin-bottom: 20px;
 }
 
-.content ul {
-    padding-left: 20px;
+.footer ul li {
+    margin-bottom: 10px;
+    font-size: 17px;
+    color: #666;
 }
 
-.content ul li {
-    margin-bottom: 10px;
+.footer p {
+    text-align: center;
+    font-style: italic;
+    color: #444;
+    margin-top: 20px;
 }
