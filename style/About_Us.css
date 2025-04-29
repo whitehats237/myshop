@@ -14,8 +14,11 @@ body {
 
 
 .header {
+    display: flex;
+    justify-content: space-between;
     background-color: #333;
-    padding: 15px 0;
+    color: #fff;
+    padding: 20px;
 }
 
 nav ul {
@@ -36,12 +39,13 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #ff9900;
+    color: #848280;
 }
 
 .body {
     max-width: 1000px;
     margin: 50px auto;
+    margin-top: 100px;
     padding: 40px;
     background-color: #fff;
     border-radius: 8px;
@@ -77,22 +81,36 @@ nav ul li a:hover {
     text-align: center;
     color: #333;
 }
-
-.footer ul {
-    list-style-type: disc;
-    padding-left: 40px;
-    margin-bottom: 20px;
-}
-
-.footer ul li {
-    margin-bottom: 10px;
-    font-size: 17px;
+.footer p {
+    text-align: center;
+    font-size: 16px;
     color: #666;
 }
 
-.footer p {
+footer {
+    background-color: #333;
+    color: #fff;
     text-align: center;
-    font-style: italic;
-    color: #444;
-    margin-top: 20px;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 18px;
+    color: #fff;
+}
+footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-size: 30px;
+    padding: 10px;
+}
+
+footer a:hover {
+    color: #848280;
 }

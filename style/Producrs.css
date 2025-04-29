@@ -1,0 +1,152 @@
+/* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: rgb(240, 240, 240);
+    color: black;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(59, 59, 59);
+    padding: 20px;
+    color: white;
+}
+
+.header .LOGO h2 {
+    margin: 0;
+}
+
+.nav_list ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav_list ul li {
+    margin: 0 15px;
+}
+
+.nav_list ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav_list ul li a:hover {
+    color: rgb(190, 190, 190);
+}
+
+/* Page Title */
+.page-title {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.page-title h1 {
+    font-size: 36px;
+    color: rgb(59, 59, 59);
+}
+
+.page-title p {
+    font-size: 18px;
+    color: rgb(100, 100, 100);
+}
+
+/* Product Grid */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Product Card */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.product-price {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.btn-buy {
+    background-color: #969798;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-buy:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+    background-color: rgb(59, 59, 59);
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+footer p {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 30px;
+}
+
+footer a:hover {
+    color: rgb(190, 190, 190);
+}
