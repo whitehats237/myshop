@@ -108,10 +108,8 @@ input[type="password"]{
 }
 h1{
     font-size: 30px;
-    margin-bottom: 10px;
     text-align: center;
     border-bottom: white 2px solid ;
-    padding-bottom: 10px;
 }
 input[type="checkbox"]{
     width: 20px;
