@@ -18,6 +18,7 @@
             <nav>
             <ul>
                 <li><a href="Home.html">Home</a></li><!--je dois changer le html en php-->
+                <li><a href="registration.php">Registration</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="Contact_us.html">Contact Us</a></li>
                 <li><a href="about_us.html">About Us</a></li>
@@ -116,7 +117,7 @@
                 !empty($_POST['firstname']) && !empty($_POST['email']) 
                 && !empty($_POST['password']) && !empty($_POST['gender']) 
                 && !empty($_POST['street']) && !empty($_POST['number'])
-                && !empty($_POST['city'])!empty($_POST['postalcode']))
+                && !empty($_POST['city']) && !empty($_POST['postalcode']))
             { 
 
             //Affiche les valeurs du formulaire.     
