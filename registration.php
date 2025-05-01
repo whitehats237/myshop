@@ -90,12 +90,12 @@
         $login = 'root';
         $password = '';
         $options = [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
         ];
 
         $pdo = new PDO($host, $login, $password, $options);
-
+        
         // Affiche les données envoyées par formulaire
         echo '<pre>';
         print_r($_POST);
@@ -188,6 +188,6 @@
             </div>
         <?php endforeach; ?>
     </main>
-    
+
 </body>
 </html>
