@@ -153,8 +153,8 @@
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
                 // Préparation de la requête d'insertion
-                $stmt = $pdo->prepare("INSERT INTO users (lastname, firstname, email, password, gender, street, number, city, postalcode) 
-                                    VALUES (:lastname, :firstname, :email, :password, :gender, :street, :number, :city, :postalcode)");
+                $stmt = $pdo->prepare("INSERT INTO users (lastname, firstname, email, password, gender, street, number, city, postal_code) 
+                                    VALUES (:lastname, :firstname, :email, :password, :gender, :street, :number, :city, :postal_code)");
 
                 // Exécution avec les vraies valeurs
                 $stmt->execute([
