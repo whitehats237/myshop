@@ -32,7 +32,7 @@
     </div><br><br><br>
         
     <div class="card">
-    <form action="">
+    <form action="registration.php" method="POST">
         <div>
         <h2>Please fill out the form below </h2><br>
         <label for="lastname">Last Name:</label>
@@ -106,7 +106,7 @@
             !empty($_POST['firstname']) && !empty($_POST['email']) &&
             !empty($_POST['password']) && !empty($_POST['gender']) &&
             !empty($_POST['street']) && !empty($_POST['number']) &&
-            !empty($_POST['city']) && !empty($_POST['postalcode'])
+            !empty($_POST['city']) && !empty($_POST['postal_code'])
         ) {
             $firstname = trim($_POST['firstname']);
             $lastname = trim($_POST['lastname']);
