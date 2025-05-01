@@ -116,7 +116,7 @@
             $street = $_POST['street'];
             $number = $_POST['number'];
             $city = $_POST['city'];
-            $postalcode = $_POST['postalcode'];
+            $postal_code = $_POST['postal_code'];
 
             $errors = [];
 
