@@ -172,29 +172,12 @@
             echo '<p style="color:green;">User successfully registered!</p>';
             }
         }
-        
+
     ?>
     </main>
         <h2>Registered Users</h2>
 
-        <style>
-            .card {
-                background-color: white;
-                border-radius: 10px;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-                padding: 20px;
-                margin: 20px auto;
-                max-width: 400px;
-                font-family: Arial, sans-serif;
-            }
-            .card h3 {
-                margin-top: 0;
-                color: #333;
-            }
-            .card p {
-                margin: 5px 0;
-            }
-        </style>
+
 
         <?php foreach ($users as $user): ?>
             <div class="card">
