@@ -85,56 +85,125 @@
           </footer>
 
     <main>
-        <?php
-            $host = 'mysql:host=localhost;dbname=myshop;'; // le serveur (localhost) et le nom de la BDD (entreprise) 
-            $login = 'root'; // le login de connexion à MySQL
-            $password = ''; // le mdp de connexion à MySQL (sur xampp et wamp, pas de mdp,sur mamp mdp = root)
-            $options = [
-                            PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
-                            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
-            ];
-    
-            $pdo = new PDO($host, $login, $password, $options);
+    <?php
+        $host = 'mysql:host=localhost;dbname=myshop;';
+        $login = 'root';
+        $password = '';
+        $options = [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
+            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
+        ];
 
-            $resultat = $pdo->query('SELECT * FROM users'); //  pour récupérer tous les utilisateurs de la base.
+        $pdo = new PDO($host, $login, $password, $options);
 
-            $users = $resultat->fetchAll(PDO::FETCH_ASSOC);  // transforme le résultat en tableau associatif
-            
-            //Cette boucle affiche chaque utilisateur de manière lisible
-            foreach($users as $user) {
-                echo '<pre>';
-                print_r($user);
-                echo '</pre>';
+        // Affiche les données envoyées par formulaire
+        echo '<pre>';
+        print_r($_POST);
+        echo '</pre>';
+
+        if (
+            !empty($_POST['lastname']) && 
+            !empty($_POST['firstname']) && !empty($_POST['email']) &&
+            !empty($_POST['password']) && !empty($_POST['gender']) &&
+            !empty($_POST['street']) && !empty($_POST['number']) &&
+            !empty($_POST['city']) && !empty($_POST['postalcode'])
+        ) {
+            $firstname = trim($_POST['firstname']);
+            $lastname = trim($_POST['lastname']);
+            $email = $_POST['email'];
+            $password = $_POST['password']; // à valider avant hash
+            $gender = $_POST['gender'];
+            $street = $_POST['street'];
+            $number = $_POST['number'];
+            $city = $_POST['city'];
+            $postalcode = $_POST['postalcode'];
+
+            $errors = [];
+
+            if (strlen($firstname) < 3) {
+                $errors[] = "Firstname must be at least 3 characters long.";
             }
-            
-            //Affiche toutes les données envoyées par formulaire HTML.
-            echo '<pre>';
-            print_r($_POST);
-            echo '</pre>';
-            
-            // Vérifie que tous les champs sont bien remplis (sinon, rien ne s'affiche).
-            if(!empty($_POST['lastname']) && 
-                !empty($_POST['firstname']) && !empty($_POST['email']) 
-                && !empty($_POST['password']) && !empty($_POST['gender']) 
-                && !empty($_POST['street']) && !empty($_POST['number'])
-                && !empty($_POST['city']) && !empty($_POST['postalcode']))
-            { 
 
-            //Affiche les valeurs du formulaire.     
-                echo 'Your lastname is : ' . $_POST['lastname'] . '<br>';
-                echo 'Your firstname is : ' . $_POST['firstname'] . '<br>';
-                echo 'Your email is : ' . $_POST['email'] . '<br>';
-                echo 'Your password is : ' . $_POST['password'] . '<br>';
-                echo 'Your gender is : ' . $_POST['gender'] . '<br>';
-                echo 'Your street is : ' . $_POST['street'] . '<br>';
-                echo 'Your number is : ' . $_POST['number'] . '<br>';
-                echo 'Your city is : ' . $_POST['city'] . '<br>';
-                echo 'Your postalcode is : ' . $_POST['postalcode'] . '<br>';
-         }
+            if (strlen($lastname) < 3) {
+                $errors[] = "Lastname must be at least 3 characters long.";
+            }
 
-        ?>
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $errors[] = "Invalid email address.";
+            }
+
+            if (
+                strlen($password) < 6 ||
+                !preg_match('/[A-Z]/', $password) ||
+                !preg_match('/[0-9]/', $password)
+            ) {
+                $errors[] = "Password must be at least 6 characters long and include at least one uppercase letter and one number.";
+            }
+
+            if (!preg_match('/^\d+$/', $postalcode)) {
+                $errors[] = "Postal code must contain only digits.";
+            }
+
+            if (!empty($errors)) {
+                foreach ($errors as $error) {
+                    echo '<p style="color:red;">' . $error . '</p>';
+                }
+            } else {
+            // Hash du mot de passe
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+            // Préparation de la requête d'insertion
+            $stmt = $pdo->prepare("INSERT INTO users (lastname, firstname, email, password, gender, street, number, city, postalcode) 
+                                VALUES (:lastname, :firstname, :email, :password, :gender, :street, :number, :city, :postalcode)");
+
+            // Exécution avec les vraies valeurs
+            $stmt->execute([
+                ':lastname' => $lastname,
+                ':firstname' => $firstname,
+                ':email' => $email,
+                ':password' => $hashedPassword,
+                ':gender' => $gender,
+                ':street' => $street,
+                ':number' => $number,
+                ':city' => $city,
+                ':postalcode' => $postalcode
+            ]);
+
+            echo '<p style="color:green;">User successfully registered!</p>';
+            }
+        }
+        
+    ?>
     </main>
-    
+        <h2>Registered Users</h2>
+
+        <style>
+            .card {
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                padding: 20px;
+                margin: 20px auto;
+                max-width: 400px;
+                font-family: Arial, sans-serif;
+            }
+            .card h3 {
+                margin-top: 0;
+                color: #333;
+            }
+            .card p {
+                margin: 5px 0;
+            }
+        </style>
+
+        <?php foreach ($users as $user): ?>
+            <div class="card">
+                <h3><?= htmlspecialchars($user['firstname'] . ' ' . $user['lastname']) ?></h3>
+                <p><strong>Email:</strong> <?= htmlspecialchars($user['email']) ?></p>
+                <p><strong>Gender:</strong> <?= htmlspecialchars($user['gender']) ?></p>
+                <p><strong>Address:</strong> <?= htmlspecialchars($user['street']) ?>, <?= htmlspecialchars($user['number']) ?>, <?= htmlspecialchars($user['city']) ?> (<?= htmlspecialchars($user['postalcode']) ?>)</p>
+            </div>
+        <?php endforeach; ?>
 
 </body>
 </html>
