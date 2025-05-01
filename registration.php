@@ -149,44 +149,45 @@
                     echo '<p style="color:red;">' . $error . '</p>';
                 }
             } else {
-            // Hash du mot de passe
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                // Hash du mot de passe
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            // Préparation de la requête d'insertion
-            $stmt = $pdo->prepare("INSERT INTO users (lastname, firstname, email, password, gender, street, number, city, postalcode) 
-                                VALUES (:lastname, :firstname, :email, :password, :gender, :street, :number, :city, :postalcode)");
+                // Préparation de la requête d'insertion
+                $stmt = $pdo->prepare("INSERT INTO users (lastname, firstname, email, password, gender, street, number, city, postalcode) 
+                                    VALUES (:lastname, :firstname, :email, :password, :gender, :street, :number, :city, :postalcode)");
 
-            // Exécution avec les vraies valeurs
-            $stmt->execute([
-                ':lastname' => $lastname,
-                ':firstname' => $firstname,
-                ':email' => $email,
-                ':password' => $hashedPassword,
-                ':gender' => $gender,
-                ':street' => $street,
-                ':number' => $number,
-                ':city' => $city,
-                ':postalcode' => $postalcode
-            ]);
+                // Exécution avec les vraies valeurs
+                $stmt->execute([
+                    ':lastname' => $lastname,
+                    ':firstname' => $firstname,
+                    ':email' => $email,
+                    ':password' => $hashedPassword,
+                    ':gender' => $gender,
+                    ':street' => $street,
+                    ':number' => $number,
+                    ':city' => $city,
+                    ':postalcode' => $postalcode
+                ]);
 
-            echo '<p style="color:green;">User successfully registered!</p>';
+                echo '<p style="color:green;">User successfully registered!</p>';
             }
         }
 
-    ?>
-    </main>
+        // === Récupérer tous les utilisateurs ===
+        $resultat = $pdo->query('SELECT * FROM users');
+        $users = $resultat->fetchAll(PDO::FETCH_ASSOC);
+        ?>
+
         <h2>Registered Users</h2>
-
-
-
         <?php foreach ($users as $user): ?>
-            <div class="card">
+            <div class="card" style="border:1px solid #ccc; padding:15px; margin:10px; border-radius:10px;">
                 <h3><?= htmlspecialchars($user['firstname'] . ' ' . $user['lastname']) ?></h3>
                 <p><strong>Email:</strong> <?= htmlspecialchars($user['email']) ?></p>
                 <p><strong>Gender:</strong> <?= htmlspecialchars($user['gender']) ?></p>
                 <p><strong>Address:</strong> <?= htmlspecialchars($user['street']) ?>, <?= htmlspecialchars($user['number']) ?>, <?= htmlspecialchars($user['city']) ?> (<?= htmlspecialchars($user['postalcode']) ?>)</p>
             </div>
         <?php endforeach; ?>
-
+    </main>
+    
 </body>
 </html>
