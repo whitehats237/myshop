@@ -184,7 +184,7 @@
                 <h3><?= htmlspecialchars($user['firstname'] . ' ' . $user['lastname']) ?></h3>
                 <p><strong>Email:</strong> <?= htmlspecialchars($user['email']) ?></p>
                 <p><strong>Gender:</strong> <?= htmlspecialchars($user['gender']) ?></p>
-                <p><strong>Address:</strong> <?= htmlspecialchars($user['street']) ?>, <?= htmlspecialchars($user['number']) ?>, <?= htmlspecialchars($user['city']) ?> (<?= htmlspecialchars($user['postalcode']) ?>)</p>
+                <p><strong>Address:</strong> <?= htmlspecialchars($user['street']) ?>, <?= htmlspecialchars($user['number']) ?>, <?= htmlspecialchars($user['city']) ?> (<?= htmlspecialchars($user['postal_code']) ?>)</p>
             </div>
         <?php endforeach; ?>
     </main>
