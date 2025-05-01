@@ -140,7 +140,7 @@
                 $errors[] = "Password must be at least 6 characters long and include at least one uppercase letter and one number.";
             }
 
-            if (!preg_match('/^\d+$/', $postalcode)) {
+            if (!preg_match('/^\d+$/', $postal_code)) {
                 $errors[] = "Postal code must contain only digits.";
             }
 
@@ -166,7 +166,7 @@
                     ':street' => $street,
                     ':number' => $number,
                     ':city' => $city,
-                    ':postalcode' => $postalcode
+                    ':postal_code' => $postal_code
                 ]);
 
                 echo '<p style="color:green;">User successfully registered!</p>';
