@@ -236,7 +236,20 @@
             echo '<p style="color:red;">Database error: ' . $e->getMessage() . '</p>';
         }
     }
-    ?>
+?>
+        <h2>Registered Users</h2>
+
+        <?php foreach ($users as $user): ?>
+            <div class="card">
+                <h3><?= htmlspecialchars($user['firstname'] . ' ' . $user['lastname']) ?></h3>
+                <p><strong>Email:</strong> <?= htmlspecialchars($user['email']) ?></p> <br>
+                <p><strong>Gender:</strong> <?= htmlspecialchars($user['gender']) ?></p> <br>
+                <p><strong>Address:</strong> <?= htmlspecialchars($user['street']) ?>, 
+                <?= htmlspecialchars($user['number']) ?>,
+                <?= htmlspecialchars($user['city']) ?> (<?= htmlspecialchars($user['postal_code']) ?>)</p>
+            </div>
+        <?php endforeach; ?>
+    
 
     <footer>
         <div class="rounded-social-buttons">
