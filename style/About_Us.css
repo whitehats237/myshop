@@ -122,3 +122,39 @@ footer a {
 footer a:hover {
     color: #848280;
 }
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Section principale prend toute la place disponible */
+.body {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Style général du footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Boutons sociaux (ajuste selon ton besoin) */
+.rounded-social-buttons a {
+    margin: 0 10px;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
