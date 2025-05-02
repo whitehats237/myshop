@@ -16,10 +16,12 @@ body {
 .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: #333;
     color: #fff;
-    padding: 20px;
+    padding: 10px;
 }
+
 
 nav ul {
     list-style: none;
@@ -28,18 +30,23 @@ nav ul {
 
 nav ul li {
     display: inline-block;
-    margin: 0 20px;
+    margin-left: 20px;
+    font-weight: 500;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
     transition: color 0.3s;
 }
 
 nav ul li a:hover {
     color: #848280;
+}
+
+.LOGO img{
+    border-radius: 50%;
 }
 
 .body {
@@ -89,6 +96,7 @@ nav ul li a:hover {
 
 footer {
     background-color: #333;
+    position: absolute;
     color: #fff;
     text-align: center;
     padding: 10px 0;

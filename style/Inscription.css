@@ -14,13 +14,17 @@ body{
     display: flex;
 }
 
+.LOGO img{
+    border-radius: 50%;
+}
+
 .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100px;
+    height: auto;
     width: 100%;
-    padding: 10px;
+    padding: 20px;
     margin-bottom: 30px;
     background-color: rgb(67, 67, 67);
     color: rgb(255, 255, 249);
@@ -54,6 +58,7 @@ body{
     justify-content: center;
     align-items: center;
     height: auto;
+    width: auto;
     background-color: rgba(74, 74, 74, 0.912);
     border-radius: 10px;
     margin: auto;
@@ -146,7 +151,7 @@ footer a{
     text-decoration: none;
     padding: 10px;
     font-weight: 700;
-    font-size: 40px;
+    font-size: 30px;
 }
 footer a:hover{
     color: rgb(142, 142, 142);

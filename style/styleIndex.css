@@ -21,8 +21,8 @@ body {
     padding: 20px;
 }
 
-.header .logo h1 {
-    margin: 0;
+.LOGO img{
+    border-radius: 50%;
 }
 
 .nav ul {
@@ -31,7 +31,8 @@ body {
 }
 
 .nav ul li {
-    margin: 0 15px;
+    margin-left: 20px;
+    font-size: 20px;
 }
 
 .nav ul li a {
