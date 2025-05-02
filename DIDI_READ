@@ -1,0 +1,110 @@
+Voici une présentation structurée de votre projet web, avec des explications claires pour chaque partie. Cela vous permettra de répondre aux questions de manière précise et professionnelle.
+
+Présentation du projet : KICKSY
+KICKSY est un site web de commerce électronique dédié à la vente de chaussures stylées et confortables. Le site propose une interface utilisateur intuitive et des fonctionnalités essentielles pour offrir une expérience utilisateur agréable.
+
+Structure du projet
+Le projet est organisé en plusieurs fichiers HTML, CSS et PHP, chacun ayant un rôle spécifique :
+
+Pages principales :
+
+Home.html : Page d'accueil présentant le site et ses produits phares.
+Products.html : Page listant les produits disponibles avec leurs images, noms et prix.
+Contact_us.html : Page permettant aux utilisateurs de nous contacter via un formulaire.
+About_Us.html : Page expliquant l'histoire et les valeurs de KICKSY.
+registration.php : Page d'inscription pour les nouveaux utilisateurs.
+Fichiers CSS :
+
+Chaque page a son propre fichier CSS pour styliser son contenu :
+styleIndex.css : Style de la page d'accueil.
+Producrs.css : Style de la page des produits.
+Contact_us.css : Style de la page de contact.
+About_Us.css : Style de la page "À propos".
+Inscription.css : Style de la page d'inscription.
+Images :
+
+Les images des produits et du logo sont stockées dans le dossier images shoes.
+
+Fonctionnalités principales
+
+1. Page d'accueil (Home.html)
+Objectif : Accueillir les visiteurs et leur présenter les produits phares.
+Contenu :
+Une bannière avec un message de bienvenue.
+Une section "Produits phares" affichant quelques produits populaires.
+Un bouton "Shop Now" redirigeant vers la page des produits.
+Style : Géré par styleIndex.css.
+
+
+2. Page des produits (Products.html)
+Objectif : Afficher tous les produits disponibles.
+Contenu :
+Une grille de cartes produit, chaque carte contenant :
+Une image du produit.
+Le nom et le prix du produit.
+Un bouton "Acheter".
+Style : Géré par Producrs.css.
+
+3. Page de contact (Contact_us.html)
+Objectif : Permettre aux utilisateurs de nous envoyer des messages.
+Contenu :
+Un formulaire avec les champs :
+Nom complet.
+Adresse e-mail.
+Sujet.
+Message.
+Une section "Find Us" avec l'adresse, le numéro de téléphone et une carte Google Maps.
+Style : Géré par Contact_us.css.
+
+4. Page "À propos" (About_Us.html)
+Objectif : Présenter l'histoire et les valeurs de KICKSY.
+Contenu :
+Une introduction sur l'entreprise.
+Une liste des avantages de choisir KICKSY.
+Style : Géré par About_Us.css.
+
+. Page d'inscription (registration.php)
+Objectif : Permettre aux utilisateurs de créer un compte.
+Contenu :
+Un formulaire avec les champs :
+Nom, prénom, e-mail, mot de passe.
+Genre (Homme, Femme, Autre).
+Adresse (rue, numéro, ville, code postal).
+Une case à cocher pour accepter les conditions générales.
+Validation JavaScript pour vérifier les champs avant l'envoi.
+Traitement PHP pour enregistrer les données dans une base de données MySQL.
+Style : Géré par Inscription.css.
+
+Validation et traitement des données
+Validation JavaScript (côté client)
+Vérifie que tous les champs obligatoires sont remplis.
+Vérifie les formats (e-mail, mot de passe, code postal, etc.).
+Affiche des messages d'erreur si des champs sont invalides.
+Traitement PHP (côté serveur)
+Vérifie que les données envoyées via le formulaire sont valides.
+Hash le mot de passe avant de l'enregistrer dans la base de données.
+Insère les données dans une table users de la base de données MySQL
+
+Design et expérience utilisateur
+Design responsive : Les pages sont conçues pour s'adapter aux différentes tailles d'écran grâce à des styles CSS flexibles.
+Navigation intuitive : Un menu de navigation est présent sur toutes les pages pour faciliter l'accès aux différentes sections du site.
+Cohérence visuelle : Les couleurs, polices et styles sont uniformes sur toutes les pages.
+
+
+
+Questions fréquentes
+Comment fonctionne la validation du formulaire d'inscription ?
+
+La validation est effectuée en JavaScript avant l'envoi du formulaire. Si des erreurs sont détectées, elles sont affichées sous forme d'alerte, et l'envoi est bloqué.
+Comment les données sont-elles stockées ?
+
+Les données des utilisateurs sont envoyées au serveur via PHP, puis enregistrées dans une base de données MySQL après validation.
+Comment ajouter un nouveau produit ?
+
+Ajoutez une nouvelle carte produit dans Products.html en suivant le modèle existant (image, nom, prix, bouton).
+Comment modifier le style d'une page ?
+
+Modifiez le fichier CSS correspondant à la page (par exemple, Producrs.css pour la page des produits).
+Comment fonctionne la page de contact ?
+
+Les utilisateurs remplissent un formulaire, et les données sont envoyées à un script PHP (submit_contact.php) pour traitement (par exemple, envoi d'un e-mail).
