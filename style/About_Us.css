@@ -122,6 +122,10 @@ footer a {
 footer a:hover {
     color: #848280;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> c7ea8b170c58eee9ac3c3bb047ebb7de30fcde98
 html, body {
     height: 100%;
     margin: 0;
@@ -150,10 +154,18 @@ footer {
     bottom: 0;
     width: 100%;
 }
+<<<<<<< HEAD
 /* Boutons sociaux (ajuste selon ton besoin) */
+
+/* Boutons sociaux  */
+>>>>>>> c7ea8b170c58eee9ac3c3bb047ebb7de30fcde98
 .rounded-social-buttons a {
     margin: 0 10px;
     color: white;
     font-size: 20px;
     text-decoration: none;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> c7ea8b170c58eee9ac3c3bb047ebb7de30fcde98
