@@ -236,7 +236,10 @@
             echo '<p style="color:red;">Database error: ' . $e->getMessage() . '</p>';
         }
     }
+
+    $users = []; // Initialisation vide 
 ?>
+
         <h2>Registered Users</h2>
 
         <?php foreach ($users as $user): ?>
